@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support Glossary</title>
+<meta name="description" content="MotionPoint Customer Support glossary: abbreviations and terms, explained.">
+<style>
+:root{
+  --bg:#F3F6FB; --surface:#FFFFFF; --ink:#0B2545; --muted:#3B4F6B; --line:#DCE1E8; --blue:#1466F0;
+  --c-team:#2F7A22; --c-team-s:#E5F4DE; --c-sf:#5867E8; --c-sf-s:#E8EAFD; --c-tool:#1466F0; --c-tool-s:#DCE7F7;
+  --c-tech:#0E7490; --c-tech-s:#DDF3F7; --c-proc:#C2410C; --c-proc-s:#FCE3CC; --c-work:#6B4A0E; --c-work-s:#FFF4D6;
+  --shadow:0 6px 18px rgba(11,37,69,.08); --chip:#FFFFFF;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0E1B2E; --surface:#15253D; --ink:#EAF0F8; --muted:#A9B8CC; --line:#26385A; --blue:#6EA8FF;
+    --c-team:#8FD16F; --c-team-s:#1D3A22; --c-sf:#A3ACFF; --c-sf-s:#26294D; --c-tool:#6EA8FF; --c-tool-s:#1B3358;
+    --c-tech:#5FD0E6; --c-tech-s:#143A44; --c-proc:#FFA06B; --c-proc-s:#3D2717; --c-work:#F2C66B; --c-work-s:#3A2F14;
+    --shadow:0 6px 18px rgba(0,0,0,.3); --chip:#15253D;
+  }
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;line-height:1.45}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+header{padding:40px 0 18px}
+.eyebrow{font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--c-team)}
+h1{margin:8px 0 6px;font-size:clamp(30px,5vw,44px);line-height:1.1}
+.lede{margin:0;font-size:18px;color:var(--muted);max-width:760px}
+.tools{position:sticky;top:0;z-index:5;background:var(--bg);padding:14px 0 12px;border-bottom:1px solid var(--line)}
+.search{position:relative}
+.search input{width:100%;height:52px;border-radius:14px;border:2px solid var(--line);background:var(--surface);color:var(--ink);font-size:17px;padding:0 48px 0 46px;outline:none}
+.search input:focus{border-color:var(--blue)}
+.search input::-webkit-search-cancel-button{-webkit-appearance:none;display:none}
+.search svg{position:absolute;left:14px;top:15px;color:var(--muted)}
+.search .clear{position:absolute;right:8px;top:8px;width:36px;height:36px;border:none;border-radius:10px;background:transparent;color:var(--muted);font-size:22px;cursor:pointer;display:none}
+.search .clear.on{display:block}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px}
+.chip{border:1px solid var(--line);background:var(--chip);color:var(--ink);border-radius:999px;padding:8px 14px;font-size:14px;font-weight:700;cursor:pointer;min-height:40px}
+.chip[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:#fff}
+.meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:10px;font-size:14px;color:var(--muted)}
+.linkbtn{background:none;border:none;color:var(--blue);font-weight:700;font-size:14px;cursor:pointer;padding:0}
+main{padding:20px 0 40px}
+.group{margin:0 0 26px}
+.group h2{margin:0 0 12px;font-size:20px;display:flex;align-items:center;gap:10px}
+.group h2 .dot{width:12px;height:12px;border-radius:4px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;align-items:start}
+.term{border-radius:16px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);overflow:hidden}
+.term button.head{width:100%;display:flex;gap:14px;align-items:center;text-align:left;padding:14px 16px;background:none;border:none;color:inherit;cursor:pointer;font:inherit}
+.term button.head:focus-visible{outline:3px solid var(--blue);outline-offset:-3px;border-radius:16px}
+.abbr{flex-shrink:0;min-width:64px;padding:8px 10px;border-radius:12px;font-size:17px;font-weight:900;text-align:center;letter-spacing:.02em}
+.full{font-size:15.5px;font-weight:700;line-height:1.3;flex:1;min-width:0}
+.chev{flex-shrink:0;color:var(--muted);transition:transform .15s ease}
+.term.open .chev{transform:rotate(180deg)}
+.detail{display:none;padding:0 16px 16px 16px;font-size:14.5px;color:var(--muted)}
+.term.open .detail{display:block}
+.detail p{margin:0 0 10px;color:var(--ink)}
+.seen{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:13px}
+.seen a{color:var(--blue);font-weight:700;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+.seen a:hover{text-decoration:underline}
+.k-team .abbr{background:var(--c-team-s);color:var(--c-team)} .k-team .dot{background:var(--c-team)}
+.k-sf .abbr{background:var(--c-sf-s);color:var(--c-sf)} .k-sf .dot{background:var(--c-sf)}
+.k-tool .abbr{background:var(--c-tool-s);color:var(--c-tool)} .k-tool .dot{background:var(--c-tool)}
+.k-tech .abbr{background:var(--c-tech-s);color:var(--c-tech)} .k-tech .dot{background:var(--c-tech)}
+.k-proc .abbr{background:var(--c-proc-s);color:var(--c-proc)} .k-proc .dot{background:var(--c-proc)}
+.k-work .abbr{background:var(--c-work-s);color:var(--c-work)} .k-work .dot{background:var(--c-work)}
+mark{background:#FFE45C;color:#0B2545;border-radius:3px;padding:0 2px}
+.empty{display:none;padding:40px 16px;text-align:center;color:var(--muted);font-size:17px}
+.empty.on{display:block}
+footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);font-size:15px}
+footer b{color:var(--ink)}
+@media (max-width:560px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <div class="eyebrow">MotionPoint Customer Support &middot; New Agent Training</div>
+  <h1>Support Glossary</h1>
+  <p class="lede">The abbreviations and terms you&rsquo;ll hear every day, explained. Click any term to see what it means.</p>
+</header>
+
+<div class="tools">
+  <div class="wrap">
+    <div class="search">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+      <label for="q" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Search the glossary</label>
+      <input id="q" type="search" placeholder="Search a term, for example: TAM, PID, BE, Entitlement" autocomplete="off">
+      <button class="clear" id="clear" type="button" aria-label="Clear search">&times;</button>
+    </div>
+    <div class="row" id="chips" role="group" aria-label="Filter by category"></div>
+    <div class="meta"><span id="count" aria-live="polite"></span><span><button class="linkbtn" id="openAll" type="button">Open all</button> &middot; <button class="linkbtn" id="closeAll" type="button">Close all</button></span></div>
+  </div>
+</div>
+
+<main class="wrap">
+  <div id="groups"></div>
+  <div class="empty" id="empty">No terms match that search. Try another word, or ask the Support team or Tier II.</div>
+</main>
+
+<footer class="wrap">
+  <b>Missing a term?</b> Ask the Support team, Tier II or the Director of Customer Support, and let us know so we can add it.
+</footer>
+
+<script>
+const BASE = 'https://motionpoint-support.github.io/';
+const CATS = { team: 'Teams & roles', sf: 'Salesforce', tool: 'Tools & software', tech: 'Translation & tech', proc: 'Processes & metrics', work: 'Workplace' };
+const TR = {
+  welcome: ['Welcome-to-Customer-Support', 'Welcome'], proxy: ['Proxy-explained', 'Proxy'], begins: ['support-case-animation', 'How a case begins'],
+  dos: ['Support-DOs-and-DONTs', 'DOs & DON&rsquo;Ts'], tech: ['Reporting-Technical-Issues-guidelines', 'Technical issues'], accts: ['Accounts-Entitlements-guidelines', 'Accounts & Entitlements'],
+  myday: ['MyDay-time-guidelines', 'My Day'], queue: ['My-List-view-Queue-in-SF', 'My List View'], billing: ['Billing-guidelines', 'Billing'], offline: ['Offline-cases-guidelines', 'Offline cases'],
+  misalign: ['Misalignment-guidelines', 'Misalignment'], transl: ['Translation-Cases', 'Translation cases'], create: ['How-to-Create-case-guidelines', 'Create a case'],
+  charles: ['Pushing-Finding-content-with-Charles', 'Charles'], spike: ['Spike-cases', 'Spike cases'], qa: ['QA-cases-to-SU', 'QA cases'], outage: ['Outage-cases-and-process-guidelines', 'Outage cases'],
+  vs: ['VS-email-guidelines', 'VS emails'], cdn: ['cdn-explained', 'CDN'], tm: ['Translation-memory-search-guidelines', 'TM search'], webloc: ['Webloc-case-flows-advanced', 'Webloc flows'],
+  invites: ['Call-invites-guidelines', 'Call invites'], shift: ['Email-Shift-Guidelines', 'Email shift'], sfout: ['sf-emergency-notification-training', 'Salesforce outage'],
+  recon: ['Billing-Reconciliation-for-Invoices', 'Invoice reconciliation'], pdr: ['PDR-guidelines', 'PDR'], map: ['MAP-procedure', 'MAP calls'], oncall: ['On-Call-Procedure', 'On-call'],
+  directive: ['Directive-tags', 'Directive tags'], scope: ['Project-Scope', 'Project Scope'], live: ['Live-edit-guidelines', 'Live Edit'], mm: ['Memory-Manager', 'Memory Manager'],
+  appa: ['AppA-update-guidelines', 'App A'], api: ['API-Guidelines', 'API jobs']
+};
+const G = [
+ // Teams & roles
+ ['SU', 'Support Unit (Customer Support)', 'team', 'Our team. Support agents are customer advocates: we acknowledge, understand, thoroughly document and route each case to the right team. Support doesn&rsquo;t fix the issue itself; we make sure it gets fixed and the customer is kept informed.', ['welcome', 'begins', 'dos']],
+ ['Tier II', 'Second-level Support', 'team', 'Senior Support help. Go to Tier II when you&rsquo;re stuck after looking for the answer yourself, for escalations, or when Express or Critical work needs cover. Tier II keeps the Director of Customer Support informed.', ['dos', 'tech', 'oncall']],
+ ['CSM', 'Customer Success Manager', 'team', 'Handles the relationship with the customer at the highest levels. Controls major new sales and projects before they reach operations, and is a key force for customer retention.', ['welcome']],
+ ['CXM', 'Customer Experience Manager', 'team', 'Holds the customer&rsquo;s hand in the day-to-day. Stays involved in big decisions, billing, customer education and MotionPoint tool training, GoLives, CSAT and how the customer feels. Route relationship, contract, SOW, scope-of-service and escalation topics to the CXM.', ['accts', 'pdr', 'spike', 'invites']],
+ ['PM', 'Project Manager', 'team', 'Plans and runs projects, such as a PDR, from start to finish: scope, timeline and coordination between teams. Once a case becomes a PDR, the PM manages it.', ['pdr', 'appa']],
+ ['TAM', 'Translation Account Manager', 'team', 'Owns translation content and quality: assigning linguists, the translation queue, Offline document translation, Spikes and per-word cost approvals, and turnaround. Text inside an image also goes to the TAM. Offline cases go to the dedicated Offline TAM.', ['transl', 'offline', 'spike', 'misalign']],
+ ['PE', 'Platform Engineering (Platform Engineer)', 'team', 'Technical and platform work on the live translated site. Always name the PE queue: PE - Translation (activation: translated but not showing), PE - Misalignment (display or CSS issues), PE - Functionality (broken pages, checkout, login) or PE - Other (general tech and configuration).', ['misalign', 'charles', 'outage', 'api', 'appa']],
+ ['QA', 'Quality Assurance', 'team', 'Tests the translated sites. QA sends Support Automation cases for origin-site defects and customer-action cases, and adds or removes crawl patterns for scope changes.', ['qa', 'appa']],
+ ['App Admin', 'Application Administration', 'team', 'The team that administers MotionPoint&rsquo;s applications. Cases about application access or setup may route here.', []],
+ ['AE', 'Account Executive', 'team', 'The salesperson for an account. Can request scope changes or new work on the customer&rsquo;s behalf.', ['appa']],
+ ['SDM', 'Service Delivery Manager', 'team', 'Oversees service delivery for an account. You&rsquo;ll see this role on Salesforce cases and accounts.', []],
+ ['Compass', 'MotionPoint IT team', 'team', 'MotionPoint&rsquo;s own IT team. Contact Compass for MotionPoint tools, access and software they installed: Salesforce, ControlCenter, AWS VPN, Teams, Outlook. Email first; no reply in 15 minutes on an urgent issue, call.', ['tech']],
+ ['POC', 'Point of Contact', 'team', 'The person to contact for something. Customers have POCs (for example, Emergency POCs in a BE&rsquo;s Related Contacts), and staffing partners have an IT POC.', ['accts', 'tech', 'outage']],
+ // Salesforce
+ ['SF', 'Salesforce', 'sf', 'Home base for every case: where cases arrive, get documented, routed and closed.', ['create', 'queue', 'accts']],
+ ['BE', 'Business Entity (Project)', 'sf', 'A project under a customer Account, such as a website, app or program. Each BE has its own Related Contacts. Always use the right BE&rsquo;s contacts for approvals, defects and emergencies.', ['accts']],
+ ['Account', 'Customer Account', 'sf', 'The customer company in Salesforce (record type Customer). The parent of its Business Entities, and where you find the Entitlement.', ['accts']],
+ ['Entitlement', 'Support plan', 'sf', 'Found on the Account. Beyond Words - Standard: after hours and weekends, only Critical cases. Beyond Words 24/7: Express and Critical cases after hours and on weekends too.', ['accts', 'oncall']],
+ ['Related Contacts', 'Contacts by role, per BE', 'sf', 'The list of people on a Business Entity, with checkboxes for why to contact them: Project Contact, Emergency Contact, Origin Site Defects and more.', ['accts']],
+ ['Milestone', 'Case milestone', 'sf', 'The response step on a case. Complete it when you acknowledge the case, so the response time is met.', ['dos', 'vs']],
+ ['Priority', 'Standard, Express, Critical', 'sf', 'How urgent a case is. Express and Critical cases need a Teams message to the owner until they acknowledge. Check the description: some cases should move up to Critical.', ['dos', 'oncall']],
+ ['Queue', 'Case queue', 'sf', 'A shared list of cases owned by a team, such as Support or PE - Functionality. Your list view shows the cases you need to work.', ['queue']],
+ ['Warnings', 'Account warnings', 'sf', 'Flags on an account, like Must Provide Quotes First or Do Not Bill Without Approval. Check them before instructing the PE to start work.', ['appa', 'dos']],
+ ['My Day', 'Time tracking in Salesforce', 'sf', 'Where you log time spent outside of cases, like training and meetings, so your utilization is accurate.', ['myday']],
+ // Tools & software
+ ['ControlCenter', 'MotionPoint&rsquo;s project tool', 'tool', 'Where projects, languages, the translation queue and PIDs live. Opened through the AWS VPN.', ['charles', 'api', 'transl']],
+ ['TPM', 'Translation Project Manager', 'tool', 'The ControlCenter screen where you search for a customer and open their language projects.', ['charles', 'api']],
+ ['WC', 'WebCATT', 'tool', 'Opens from a language project in ControlCenter. Where you search the page queue, find PIDs and schedule content.', ['charles', 'vs']],
+ ['TM', 'Translation Memory', 'tool', 'The stored translations for a customer. Searched to find how something was translated before.', ['tm', 'api']],
+ ['LE', 'Live Edit', 'tool', 'Lets you review and change translations directly on the translated page, including the title, meta description and OG tags.', ['live']],
+ ['Memory Manager', 'Translation memory tool', 'tool', 'A self-service ControlCenter tool for finding and managing translations. Spotting a customer who could use it? Make their CXM aware.', ['mm']],
+ ['Project Scope', 'Scope tool', 'tool', 'A self-service ControlCenter tool that shows what&rsquo;s in a customer&rsquo;s scope.', ['scope']],
+ ['App A', 'Appendix A (scope file)', 'tool', 'The customer&rsquo;s scope file in SharePoint. Lists which URLs follow rule A, B, C or D. Must be updated accurately and cleanly after every scope change.', ['appa']],
+ ['Charles', 'Charles proxy debugger', 'tool', 'A tool that adds mpactionid=16408 to every request on a site, so content behind logins or flows enters the translation queue.', ['charles', 'transl']],
+ ['AWS VPN', 'Amazon Web Services Virtual Private Network', 'tool', 'The secure connection you need to reach internal tools like ControlCenter. Can&rsquo;t connect? It&rsquo;s urgent: contact Compass.', ['tech']],
+ ['Teams', 'Microsoft Teams', 'tool', 'Chat and calls. Acknowledge every @support message, and Teams the owner on Express and Critical cases until they acknowledge.', ['shift', 'dos']],
+ ['Cerebro', 'Support Cerebro', 'tool', 'Support&rsquo;s assistant for reading a case, suggesting routing, and turning a draft into a customer-ready note.', []],
+ ['DOMO', 'Reporting tool', 'tool', 'Used for case and metric reporting. For example, PDRs are tagged as scoping and quoting there.', ['pdr']],
+ ['OneNote', 'Support OneNote', 'tool', 'Support&rsquo;s shared notes, including Support - Procedures. Check it before you escalate.', ['dos', 'appa']],
+ // Translation & tech
+ ['PID', 'Page ID', 'tech', 'The ID of a page or piece of content in ControlCenter. Include PIDs in your note to the TAM.', ['charles', 'transl']],
+ ['QN', 'Queue Name', 'tech', 'The name of a translation queue, built from source, target and region, for example EN.ES.US.1234.', ['api']],
+ ['Origin site', 'The customer&rsquo;s original site', 'tech', 'The customer&rsquo;s own (usually English) website. Always test it first: if the issue is there too, it&rsquo;s an origin-site defect, not ours.', ['misalign', 'qa', 'proxy']],
+ ['Localized site', 'Translated site', 'tech', 'The translated version of the customer&rsquo;s site, served through MotionPoint&rsquo;s proxy.', ['proxy']],
+ ['Proxy', 'Translation proxy', 'tech', 'The MotionPoint technology that takes the origin site and serves it translated to visitors.', ['proxy']],
+ ['CDN', 'Content Delivery Network', 'tech', 'A network of servers that caches and delivers site content quickly. Caching can explain why an update doesn&rsquo;t show yet.', ['cdn']],
+ ['API', 'Application Programming Interface', 'tech', 'A way for systems to talk to each other. Customers can send content for translation through the Translation API, tracked by job IDs.', ['api']],
+ ['mpactionid', 'mpactionid=16408', 'tech', 'The URL parameter that pushes a page into the translation queue. Add it to a page URL, or let Charles add it.', ['transl', 'charles']],
+ ['Activation', 'Translated but not showing', 'tech', 'Content that is already 100% translated but isn&rsquo;t showing on the live site. Routes to PE - Translation.', ['transl']],
+ ['Rules A/B/C/D', 'Scope rules', 'tech', 'A: auto-queues (fully managed). B: manual only (maintenance mode). C: nothing queued (original language). D: out of scope (redirects to the origin).', ['appa', 'scope']],
+ ['Directive tags', 'Translation directive tags', 'tech', 'Tags in a page&rsquo;s code that tell the proxy what to translate or skip.', ['directive']],
+ ['MTPE', 'Machine Translation Post-Editing', 'tech', 'Machine translation reviewed and edited by a human linguist. One of the translation service levels, with its own per-word rate.', ['recon', 'spike']],
+ ['CSS', 'Cascading Style Sheets', 'tech', 'The code that controls how a page looks. Many misalignment issues are CSS issues.', ['misalign']],
+ ['SSL / CSR', 'Secure Sockets Layer / Certificate Signing Request', 'tech', 'Security certificates for a site&rsquo;s domains. For a certificate request, confirm you have both the certificate file and the passphrase.', []],
+ ['OG tags', 'Open Graph tags', 'tech', 'Page tags that control how a link looks when shared on social media. Editable in Live Edit.', ['live']],
+ ['URL', 'Uniform Resource Locator', 'tech', 'A web address. Include the exact URL in every hand-off.', ['transl', 'misalign']],
+ ['HTML / JSON', 'Web page code / data format', 'tech', 'HTML is the code of a web page. JSON is a data format; content loaded from JSON may not queue the usual way.', ['charles']],
+ // Processes & metrics
+ ['PDR', 'Post Delivery Request', 'proc', 'A mini project run by a PM, for work too big for a regular case, such as a substantial addition to scope. Support flags it and routes it to the CXM or PM.', ['pdr', 'appa']],
+ ['P1', 'Priority 1 (outage)', 'proc', 'The outage procedure for Tier 1 customers when MotionPoint is at fault: Emergency POCs, the P1 Teams chat, regular follow-ups, and an RCA if requested.', ['outage']],
+ ['RCA', 'Root Cause Analysis', 'proc', 'An explanation of why an incident happened and what will stop it happening again. Provided after an outage if the customer requests it.', ['outage']],
+ ['MAP', 'MAP calls', 'proc', 'The emergency phone line customers can call at any time to reach a person.', ['map']],
+ ['Spike', 'Spike in content', 'proc', 'Unusually high volume in the translation queue. The customer&rsquo;s Translation Budget Approver must approve the cost before it&rsquo;s translated.', ['spike']],
+ ['Express / Critical process', 'Teams until acknowledged', 'proc', 'For Express and Critical cases: Teams the owner until they acknowledge, message again, then involve their manager or director. Never assume they saw it.', ['dos', 'transl', 'vs']],
+ ['SLA', 'Service Level Agreement', 'proc', 'The response or delivery time we commit to. For example, a 1 business-day SLA to detect and queue new content.', ['transl', 'dos']],
+ ['TTS', 'Time to Start', 'proc', 'How fast a case is started: acknowledging the milestone in Salesforce and writing a customer-visible note. Standard 1 business day, Express 1 hour, Critical 30 minutes.', ['dos', 'begins']],
+ ['TTC', 'Time to Close', 'proc', 'How long a case takes from creation to closing.', ['dos']],
+ ['SOW', 'Statement of Work', 'proc', 'The document that defines the work and pricing agreed with a customer. Check it for rates before quoting.', ['spike', 'recon']],
+ ['MRR', 'Monthly Recurring Revenue', 'proc', 'What a customer pays each month. The CXM checks it when deciding if a request becomes a PDR.', ['pdr']],
+ ['CSAT', 'Customer Satisfaction', 'proc', 'How satisfied customers are, measured through surveys.', []],
+ ['UAT', 'User Acceptance Testing', 'proc', 'Testing by the customer or QA to confirm work is ready before it goes live.', []],
+ ['ETA', 'Estimated Time of Arrival', 'proc', 'When something is expected to be done. Some customers ask for a quote and ETA before any work begins.', ['offline', 'spike']],
+ ['GoLive', 'Site launch', 'proc', 'When a translated site or language launches for visitors.', []],
+ ['Client Note report', 'Pending client responses', 'proc', 'The Salesforce report of cases with new customer replies. Make the case owner aware of every update, and open a new case for anything new.', ['shift', 'dos']],
+ ['Email shift', 'Support email and phone shift', 'proc', 'Your shift covering Support email, calls and @support messages in Teams.', ['shift']],
+ ['On-call', 'After-hours coverage', 'proc', 'Covering urgent cases outside business hours, with a backup and Tier II.', ['oncall', 'tech']],
+ // Workplace
+ ['OOO', 'Out of Office', 'work', 'Away from work. Your backup or buddy covers for you.', ['shift']],
+ ['PTO', 'Paid Time Off', 'work', 'Scheduled time off. Add it to the PTO calendar so the team can plan coverage.', ['shift']],
+ ['IT', 'Information Technology', 'work', 'Technical help for your equipment and access: Compass for MotionPoint tools and software, your staffing partner&rsquo;s IT team or POC for hardware.', ['tech']],
+ ['@support', 'Support mention in Teams', 'work', 'How other teams reach Support in the Support general chat. Always acknowledge it: react or reply.', ['shift', 'dos']],
+];
+const items = G.map((g, i) => ({ id: 't' + i, abbr: g[0], full: g[1], cat: g[2], def: g[3], seen: g[4] }));
+const plain = (s) => { const d = document.createElement('div'); d.innerHTML = s; return d.textContent; };
+items.forEach((it) => { it.pa = plain(it.abbr); it.pf = plain(it.full); it.pd = plain(it.def); it.hay = (it.pa + ' ' + it.pf + ' ' + it.pd + ' ' + CATS[it.cat]).toLowerCase(); });
+const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const hl = (text, words) => { let out = esc(text); words.forEach((w) => { if (w.length < 2) return; out = out.replace(new RegExp('(' + w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'ig'), '<mark>$1</mark>'); }); return out; };
+const groupsEl = document.getElementById('groups'), q = document.getElementById('q'), chips = document.getElementById('chips'), count = document.getElementById('count'), empty = document.getElementById('empty'), clear = document.getElementById('clear');
+let cat = 'all'; const open = new Set();
+['all', ...Object.keys(CATS)].forEach((k) => {
+  const b = document.createElement('button'); b.type = 'button'; b.className = 'chip'; b.dataset.k = k;
+  b.textContent = k === 'all' ? 'All terms' : CATS[k]; b.setAttribute('aria-pressed', k === cat ? 'true' : 'false');
+  b.addEventListener('click', () => { cat = k; [...chips.children].forEach((c) => c.setAttribute('aria-pressed', c.dataset.k === k ? 'true' : 'false')); render(); });
+  chips.appendChild(b);
+});
+function render() {
+  const words = q.value.trim().toLowerCase().split(/\s+/).filter(Boolean);
+  clear.classList.toggle('on', q.value.length > 0);
+  const shown = items.filter((it) => (cat === 'all' || it.cat === cat) && words.every((w) => it.hay.includes(w)));
+  let html = '';
+  Object.keys(CATS).forEach((k) => {
+    const list = shown.filter((it) => it.cat === k).sort((a, b) => a.pa.localeCompare(b.pa));
+    if (!list.length) return;
+    html += '<section class="group k-' + k + '"><h2><span class="dot"></span>' + CATS[k] + '</h2><div class="grid">' + list.map((it) => {
+      const isOpen = open.has(it.id) || words.length > 0;
+      const seen = it.seen.length ? '<div class="seen"><span>Learn more:</span>' + it.seen.map((s) => '<a href="' + BASE + TR[s][0] + '/" target="_blank" rel="noopener">' + TR[s][1] + '</a>').join('') + '</div>' : '';
+      return '<div class="term k-' + k + (isOpen ? ' open' : '') + '" data-id="' + it.id + '"><button class="head" type="button" aria-expanded="' + isOpen + '" aria-controls="d-' + it.id + '"><span class="abbr">' + hl(it.pa, words) + '</span><span class="full">' + hl(it.pf, words) + '</span><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button>' +
+        '<div class="detail" id="d-' + it.id + '"><p>' + hl(it.pd, words) + '</p>' + seen + '</div></div>';
+    }).join('') + '</div></section>';
+  });
+  groupsEl.innerHTML = html;
+  empty.classList.toggle('on', shown.length === 0);
+  count.textContent = shown.length === items.length ? items.length + ' terms' : 'Showing ' + shown.length + ' of ' + items.length + ' terms';
+}
+groupsEl.addEventListener('click', (e) => {
+  const head = e.target.closest('button.head'); if (!head) return;
+  const card = head.parentElement, id = card.dataset.id;
+  const now = !card.classList.contains('open');
+  card.classList.toggle('open', now); head.setAttribute('aria-expanded', String(now));
+  if (now) open.add(id); else open.delete(id);
+});
+document.getElementById('openAll').addEventListener('click', () => { items.forEach((it) => open.add(it.id)); render(); });
+document.getElementById('closeAll').addEventListener('click', () => { open.clear(); q.value = ''; render(); });
+q.addEventListener('input', render);
+clear.addEventListener('click', () => { q.value = ''; render(); q.focus(); });
+document.addEventListener('keydown', (e) => { if (e.key === '/' && document.activeElement !== q) { e.preventDefault(); q.focus(); } });
+render();
+</script>
+</body>
+</html>
