@@ -85,7 +85,7 @@ footer b{color:var(--ink)}
     <div class="search">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
       <label for="q" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Search the glossary</label>
-      <input id="q" type="search" placeholder="Search a term, for example: TAM, PID, BE, Entitlement" autocomplete="off">
+      <input id="q" type="search" placeholder="Search a term, for example: TAM, PID, SID, BE, Entitlement" autocomplete="off">
       <button class="clear" id="clear" type="button" aria-label="Clear search">&times;</button>
     </div>
     <div class="row" id="chips" role="group" aria-label="Filter by category"></div>
@@ -129,7 +129,6 @@ const G = [
  ['QA', 'Quality Assurance', 'team', 'Tests the translated sites. QA sends Support Automation cases for origin-site defects and customer-action cases, and adds or removes crawl patterns for scope changes.', ['qa', 'appa']],
  ['App Admin', 'Application Administration', 'team', 'The team that administers MotionPoint&rsquo;s applications. Cases about application access or setup may route here.', []],
  ['AE', 'Account Executive', 'team', 'The salesperson for an account. Can request scope changes or new work on the customer&rsquo;s behalf.', ['appa']],
- ['SDM', 'Service Delivery Manager', 'team', 'Oversees service delivery for an account. You&rsquo;ll see this role on Salesforce cases and accounts.', []],
  ['Compass', 'MotionPoint IT team', 'team', 'MotionPoint&rsquo;s own IT team. Contact Compass for MotionPoint tools, access and software they installed: Salesforce, ControlCenter, AWS VPN, Teams, Outlook. Email first; no reply in 15 minutes on an urgent issue, call.', ['tech']],
  ['POC', 'Point of Contact', 'team', 'The person to contact for something. Customers have POCs (for example, Emergency POCs in a BE&rsquo;s Related Contacts), and staffing partners have an IT POC.', ['accts', 'tech', 'outage']],
  // Salesforce
@@ -148,7 +147,7 @@ const G = [
  ['TPM', 'Translation Project Manager', 'tool', 'The ControlCenter screen where you search for a customer and open their language projects.', ['charles', 'api']],
  ['WC', 'WebCATT', 'tool', 'Opens from a language project in ControlCenter. Where you search the page queue, find PIDs and schedule content.', ['charles', 'vs']],
  ['TM', 'Translation Memory', 'tool', 'The stored translations for a customer. Searched to find how something was translated before.', ['tm', 'api']],
- ['LE', 'Live Edit', 'tool', 'Lets you review and change translations directly on the translated page, including the title, meta description and OG tags.', ['live']],
+ ['LE', 'Live Edit', 'tool', 'Lets you review and change translations directly on the translated page, including the page title and meta description.', ['live']],
  ['Memory Manager', 'Translation memory tool', 'tool', 'A self-service ControlCenter tool for finding and managing translations. Spotting a customer who could use it? Make their CXM aware.', ['mm']],
  ['Project Scope', 'Scope tool', 'tool', 'A self-service ControlCenter tool that shows what&rsquo;s in a customer&rsquo;s scope.', ['scope']],
  ['App A', 'Appendix A (scope file)', 'tool', 'The customer&rsquo;s scope file in SharePoint. Lists which URLs follow rule A, B, C or D. Must be updated accurately and cleanly after every scope change.', ['appa']],
@@ -160,6 +159,7 @@ const G = [
  ['OneNote', 'Support OneNote', 'tool', 'Support&rsquo;s shared notes, including Support - Procedures. Check it before you escalate.', ['dos', 'appa']],
  // Translation & tech
  ['PID', 'Page ID', 'tech', 'The ID of a page or piece of content in ControlCenter. Include PIDs in your note to the TAM.', ['charles', 'transl']],
+ ['SID', 'Segment ID', 'tech', 'A number that helps the TAM or PE locate a specific segment inside a PID. Include it with the PID when you point to an exact piece of text.', ['charles', 'transl']],
  ['QN', 'Queue Name', 'tech', 'The name of a translation queue, built from source, target and region, for example EN.ES.US.1234.', ['api']],
  ['Origin site', 'The customer&rsquo;s original site', 'tech', 'The customer&rsquo;s own (usually English) website. Always test it first: if the issue is there too, it&rsquo;s an origin-site defect, not ours.', ['misalign', 'qa', 'proxy']],
  ['Localized site', 'Translated site', 'tech', 'The translated version of the customer&rsquo;s site, served through MotionPoint&rsquo;s proxy.', ['proxy']],
@@ -169,11 +169,10 @@ const G = [
  ['mpactionid', 'mpactionid=16408', 'tech', 'The URL parameter that pushes a page into the translation queue. Add it to a page URL, or let Charles add it.', ['transl', 'charles']],
  ['Activation', 'Translated but not showing', 'tech', 'Content that is already 100% translated but isn&rsquo;t showing on the live site. Routes to PE - Translation.', ['transl']],
  ['Rules A/B/C/D', 'Scope rules', 'tech', 'A: auto-queues (fully managed). B: manual only (maintenance mode). C: nothing queued (original language). D: out of scope (redirects to the origin).', ['appa', 'scope']],
- ['Directive tags', 'Translation directive tags', 'tech', 'Tags in a page&rsquo;s code that tell the proxy what to translate or skip.', ['directive']],
+ ['DTs', 'Directive Tags', 'tech', 'Tags in a page&rsquo;s code that tell the proxy what to translate or skip.', ['directive']],
  ['MTPE', 'Machine Translation Post-Editing', 'tech', 'Machine translation reviewed and edited by a human linguist. One of the translation service levels, with its own per-word rate.', ['recon', 'spike']],
  ['CSS', 'Cascading Style Sheets', 'tech', 'The code that controls how a page looks. Many misalignment issues are CSS issues.', ['misalign']],
  ['SSL / CSR', 'Secure Sockets Layer / Certificate Signing Request', 'tech', 'Security certificates for a site&rsquo;s domains. For a certificate request, confirm you have both the certificate file and the passphrase.', []],
- ['OG tags', 'Open Graph tags', 'tech', 'Page tags that control how a link looks when shared on social media. Editable in Live Edit.', ['live']],
  ['URL', 'Uniform Resource Locator', 'tech', 'A web address. Include the exact URL in every hand-off.', ['transl', 'misalign']],
  ['HTML / JSON', 'Web page code / data format', 'tech', 'HTML is the code of a web page. JSON is a data format; content loaded from JSON may not queue the usual way.', ['charles']],
  // Processes & metrics
