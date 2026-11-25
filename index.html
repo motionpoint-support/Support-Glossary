@@ -115,7 +115,7 @@ const TR = {
   invites: ['Call-invites-guidelines', 'Call invites'], shift: ['Email-Shift-Guidelines', 'Email shift'], sfout: ['sf-emergency-notification-training', 'Salesforce outage'],
   recon: ['Billing-Reconciliation-for-Invoices', 'Invoice reconciliation'], pdr: ['PDR-guidelines', 'PDR'], map: ['MAP-procedure', 'MAP calls'], oncall: ['On-Call-Procedure', 'On-call'],
   directive: ['Directive-tags', 'Directive tags'], scope: ['Project-Scope', 'Project Scope'], live: ['Live-edit-guidelines', 'Live Edit'], mm: ['Memory-Manager', 'Memory Manager'],
-  appa: ['AppA-update-guidelines', 'App A'], api: ['API-Guidelines', 'API jobs']
+  appa: ['AppA-update-guidelines', 'App A'], api: ['API-Guidelines', 'API jobs'], uat: ['UAT-cases-guidelines', 'UAT cases']
 };
 const G = [
  // Teams & roles
@@ -170,7 +170,9 @@ const G = [
  ['Activation', 'Translated but not showing', 'tech', 'Content that is already 100% translated but isn&rsquo;t showing on the live site. Routes to PE - Translation.', ['transl']],
  ['Rules A/B/C/D', 'Scope rules', 'tech', 'A: auto-queues (fully managed). B: manual only (maintenance mode). C: nothing queued (original language). D: out of scope (redirects to the origin).', ['appa', 'scope']],
  ['DTs', 'Directive Tags', 'tech', 'Tags in a page&rsquo;s code that tell the proxy what to translate or skip.', ['directive']],
- ['MTPE', 'Machine Translation Post-Editing', 'tech', 'Machine translation reviewed and edited by a human linguist. One of the translation service levels, with its own per-word rate.', ['recon', 'spike']],
+ ['MTPE', 'Machine Translation Post-Editing', 'tech', 'Machine translation reviewed and edited by a human linguist. One of the translation service levels, with its own per-word rate. Often used during the IC (Initial Conversion).', ['recon', 'spike', 'uat']],
+ ['IC', 'Initial Conversion', 'tech', 'The first translation of a customer&rsquo;s website: its existing content is converted into the target language. For example, an MPD email note can say &ldquo;MTPE during the IC&rdquo;: machine translation, reviewed and edited by human linguists.', ['uat']],
+ ['Brand Adaptive', 'Brand-adapted machine translation', 'tech', 'Machine translation adapted to the customer&rsquo;s brand voice, terminology and writing style. Often used once a site is in maintenance, for new and updated content, after the IC.', ['uat']],
  ['CSS', 'Cascading Style Sheets', 'tech', 'The code that controls how a page looks. Many misalignment issues are CSS issues.', ['misalign']],
  ['SSL / CSR', 'Secure Sockets Layer / Certificate Signing Request', 'tech', 'Security certificates for a site&rsquo;s domains. For a certificate request, confirm you have both the certificate file and the passphrase.', []],
  ['URL', 'Uniform Resource Locator', 'tech', 'A web address. Include the exact URL in every hand-off.', ['transl', 'misalign']],
@@ -188,9 +190,10 @@ const G = [
  ['SOW', 'Statement of Work', 'proc', 'The document that defines the work and pricing agreed with a customer. Check it for rates before quoting.', ['spike', 'recon']],
  ['MRR', 'Monthly Recurring Revenue', 'proc', 'What a customer pays each month. The CXM checks it when deciding if a request becomes a PDR.', ['pdr']],
  ['CSAT', 'Customer Satisfaction', 'proc', 'How satisfied customers are, measured through surveys.', []],
- ['UAT', 'User Acceptance Testing', 'proc', 'Testing by the customer or QA to confirm work is ready before it goes live.', []],
+ ['UAT', 'User Acceptance Testing', 'proc', 'The customer tests the translated site in a test environment before Go-Live. Not the same as our QA. Cases show an orange UAT banner: complete the milestone, post a customer-visible note, and assign to the team in the MPD email. Never troubleshoot or bill.', ['uat', 'qa']],
+ ['MPD email', 'Project details email', 'proc', 'The email sent to every team on a project: customer, project, delivery and Go-Live dates, the UAT period and assigned team, customer contacts and notes.', ['uat']],
  ['ETA', 'Estimated Time of Arrival', 'proc', 'When something is expected to be done. Some customers ask for a quote and ETA before any work begins.', ['offline', 'spike']],
- ['GoLive', 'Site launch', 'proc', 'When a translated site or language launches for visitors.', []],
+ ['GoLive', 'Go-Live, site launch', 'proc', 'When a translated site or language launches for visitors. It comes right after UAT, once the customer approves.', ['uat']],
  ['Client Note report', 'Pending client responses', 'proc', 'The Salesforce report of cases with new customer replies. Make the case owner aware of every update, and open a new case for anything new.', ['shift', 'dos']],
  ['Email shift', 'Support email and phone shift', 'proc', 'Your shift covering Support email, calls and @support messages in Teams.', ['shift']],
  ['On-call', 'After-hours coverage', 'proc', 'Covering urgent cases outside business hours, with a backup and Tier II.', ['oncall', 'tech']],
